@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <tittle>Pythagoras 1, 2 & 3</tittle>
+    </head>
+    
+    <body class="centre">
+        <!--Buttons to Hide or show the different divs.-->
+        <table class="centre">
+            <tr>
+                <th><button onclick="toggleLeg()">To Find the Hypotenuse Length</button></th>
+                <th></th>
+                <th><button onclick="toggleHyp()">To Find a Leg Length</button></th>
+                <th></th>
+            </tr>
+        </table>
+        <h1 >Pythagorean Theorem Calculator</h1>
+        <br>
+        <br>
+        <!--The first div-->
+        <div class="centre" id="hypBox">
+            <h2>Find a Leg Length</h2>
+            <table class="centre">
+                <tr>
+                    <th>
+                        <!--Take input for the hypotenuse length-->
+                        <label>Hypotenuse Length:</label>
+                        <br>
+                        <input type="number" id="hypInput1">
+                        <br>
+                    </th>
+                    <th>
+                        <!--Take input for the leg length-->
+                        <label>Leg Length:</label>
+                        <br>
+                        <input type="number" id="legInput1">
+                        <br>
+                        
+                    </th>
+                </tr>
+                
+                
+            </table>
+            <button onclick="findLeg()">Submit</button>
+            <br>
+            <br>
+            <!--Display output-->
+           <label>Leg:</label>
+           <p id="l1"></p>
+           <label>Hypotenuse:</label>
+           <p id="hyp"></p>
+           <label>Missing leg:</label>
+           <p id="l2"></p>
+            
+
+        </div>
+        <!--The second div-->
+        <div id="legBox">
+            <h2 class="heading">Find the Hypotenuse Length</h2>
+            <table class="centre">
+                <tr>
+                    <th>
+                        <!--Input leg 1 length-->
+                        <label>Leg 1 length:</label>
+                        <br>
+                        <input type="Number" id="l1Input">
+                        <br>
+                    </th>
+                    <th>
+                        <!--Input leg 2 length-->
+                        <label>Leg 2 length:</label>
+                        <br>
+                        <input type="Number" id="l2Input">
+                        <br>
+                    </th>
+                </tr>
+                
+                
+            </table>
+            <button onclick="findHyp()">Submit</button>
+            <br>
+            <br>
+            <!--Display output-->
+            <label>Leg 1:</label>
+            <p id="l1.2"></p>
+            <label>Leg 2:</label>
+            <p id="l2.2"></p>
+            <label>The hypotenuse:</label>
+            <p id="hyp2"></p>
+        </div>
+       
+    </body>
+    <style>
+        .centre {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #legBox {
+            display: none;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #6e6e6e;
+            color: white;
+            font-size: 20px;
+        }
+        input{
+            font-size: 20px;
+            border-radius: 9px;
+            border: 2px solid #000000;
+            padding: 0px;
+            width: 190px;
+        }
+        .white {
+            color: white;
+        }
+        
+        button {
+            background-color: #bcfd4c;
+            color: #6e6e6e;
+            border: none;
+        }
+    </style>
+    <script>
+        //Hide the second div, & show the first div
+        function toggleHyp(){
+            var p = document.getElementById("legBox");
+            p.style.display = "none";
+            var q = document.getElementById("hypBox");
+            q.style.display = "block"
+        }
+        //hide the first div, & show the second div
+        function toggleLeg() {
+            var x = document.getElementById("hypBox");
+            x.style.display = "none";
+            var y = document.getElementById("legBox");
+            y.style.display = "block";
+        }
+        //find the leg length using pythagorean theorem & display output
+        function findLeg(){
+            var c1 = document.getElementById("hypInput1").value;
+            var a1 = document.getElementById("legInput1").value;
+            var b1 = Math.sqrt(c1*c1-a1*a1);
+            document.getElementById("l1").innerHTML = a1;
+            document.getElementById("hyp").innerHTML = c1;
+            document.getElementById("l2").innerHTML = Number(b1);
+        }
+        //find the hypotenuse length using pythogorean theorem & display output
+        function findHyp(){
+            var a2 = document.getElementById("l1Input").value;
+            var b2 = document.getElementById("l2Input").value;
+            var c2 = Math.sqrt(a2*a2+b2*b2);
+            document.getElementById("l1.2").innerHTML = a2;
+            document.getElementById("l2.2").innerHTML = b2;
+            document.getElementById("hyp2").innerHTML = c2;
+        }
+        
+    </script>
+</html>
